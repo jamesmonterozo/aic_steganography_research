@@ -1,5 +1,4 @@
 from PIL import Image
-import numpy
 import sys
 
 # ===== ===== GENERAL HELPER METHODS ===== =====
@@ -215,9 +214,9 @@ def decode(in_path, out_path, cipher):
         message = decrypt(binaries, delims, cipher) # decrypt the binaries
 
         # Output the decoded message
-        print("Decoded Message:\n" + message)
         with open(out_path, "w") as f:
             f.write(message)
+        print("Decoded Message:\n" + message)
     else:
         print("No Message Found") # No deilimiters were found
 
@@ -282,7 +281,7 @@ if __name__ == "__main__":
     except (IndexError):
         print("Follow the commandline format:")
         print("python steg.py encode [image-directory] [message-file] [output-directory]")
-        print("python steg.py decode [input-directory] [cipher] [output-directory] ")
+        print("python steg.py decode [input-directory] [cipher] [output-directory]")
 
 
 
